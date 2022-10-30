@@ -64,6 +64,7 @@
   notify: reload systemd
 
 - name: render kakfa service config file
+  gather_facts: True
   template:
     src: ../templates/server.properties.j2
     dest: "{{ kafka_path }}/latest/config/kraft/server.properties"
