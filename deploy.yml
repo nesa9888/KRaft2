@@ -2,6 +2,7 @@
 
 - name: install roles for kafka kraft
   hosts: all
+  gather_facts: yes
   become: yes
   gather_facts: true
 
