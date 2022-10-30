@@ -5,14 +5,13 @@
     name: kafka
     shell: /bin/false
 
-- name: install openjdk and related pkgs
-  dnf:
-    name: "{{ pkgs }}"
-    state: latest
-  vars:
-    pkgs:
-    - java-latest-openjdk-headless
-    - java-latest-openjdk-src
+- name: Install JRE after apt update
+  become: yes
+  apt:
+    name:
+      - default-jre
+    state: present
+    update_cache: yes
 
 - name: build kafka directory structures
   file:
