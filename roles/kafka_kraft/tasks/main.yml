@@ -65,7 +65,7 @@
 
 - name: render kakfa service config file
   template:
-    src: ../templates/server.properties.j2
+    src: ../templates/server.properties1.j2
     dest: "{{ kafka_path }}/latest/config/kraft/server.properties"
     owner: kafka
     group: kafka
