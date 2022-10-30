@@ -30,13 +30,13 @@ process.roles=broker,controller
 # controller.quorum.voters=1@localhost:9093
 # controller.quorum.voters=1@localhost:9092,2@localhost:9093,3@localhost:9094
 controller.quorum.voters=nesa988@localhost:9092
-#{% for node in kafka_service_ips -%}
-#{% if loop.index == loop.length -%}
-#{{ node.split('.')[3] }}@{{ node }}:9093
-#{% else %}
-#{{ node.split('.')[3] }}@{{ node }}:9093,
-#{%- endif %}
-#{%- endfor %}
+# {% for node in kafka_service_ips -%}
+# {% if loop.index == loop.length -%}
+# {{ node.split('.')[3] }}@{{ node }}:9093
+# {% else %}
+# {{ node.split('.')[3] }}@{{ node }}:9093,
+# {%- endif %}
+# {%- endfor %}
 
 
 
