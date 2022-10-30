@@ -31,12 +31,11 @@ node.id={{ ansible_eth1.ipv4.address.split('.')[3] }}
 # controller.quorum.voters=1@localhost:9093
 # controller.quorum.voters=1@localhost:9092,2@localhost:9093,3@localhost:9094
 controller.quorum.voters={% for node in kafka_service_ips -%}
-{% if loop.index == loop.length -%}
-{{ node.split('.')[3] }}@{{ node }}:9093
-{% else %}
-{{ node.split('.')[3] }}@{{ node }}:9093,
-{%- endif %}
-{%- endfor %}
+{% for host in groups['all'] %}
+{% if hostvars[host]['ansible_eth1']['active'] %}
+{{ hostvars[host]['ansible_eth1']['ipv4']['address'] }}       {{ host }}
+{% endif %}
+{% endfor %}
 
 
 
