@@ -1,4 +1,8 @@
 ---
+
+- name: gather all hosts information
+  hosts: all
+  
 # must not use quotes in the block: section
 - name: create kafka user
   user:
