@@ -6,6 +6,6 @@
   gather_facts: true
 
   roles:
-    - kafka-kraft
+    - kafka_kraft
 
 ...
