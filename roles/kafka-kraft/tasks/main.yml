@@ -1,33 +1,5 @@
 ---
-
-- name: Load OS-specific vars
-  include_vars: "{{lookup('first_found', params) }}"
-  vars:
-    params:
-      files:
-        - "../../group_vars/linux/{{ ansible_facts['os_family'] }}.yml"
-
-#
-# - name: see if group_vars worked
-#   debug:
-#     msg: "{{ kafka_service_rules }}"
-#
-
-- name: Set SELinux to permissive
-  ansible.posix.selinux:
-    policy: targeted
-    state: permissive
-
 # must not use quotes in the block: section
-- name: insert service-specific iptables rules
-  blockinfile:
-    block: |
-      {{ kafka_service_rules }}
-    path: "{{ iptables_path }}"
-    insertafter: "## BEGIN HOST-SPECIFIC RULES"
-  notify: load iptables rules
-  ignore_errors: yes
-
 - name: create kafka user
   user:
     name: kafka
