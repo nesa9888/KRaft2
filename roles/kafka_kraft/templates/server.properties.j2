@@ -24,7 +24,7 @@
 process.roles=broker,controller
 
 # The node id associated with this instance's roles
-node.id={{ ansible_eth1 | default(ansible_lo).ipv4.address.split('.')[3] }}
+node.id={{ (ansible_eth1 | default(ansible_lo)).ipv4.address.split('.')[3] }}
 
 # The connect string for the controller quorum
 # controller.quorum.voters=1@localhost:9093
