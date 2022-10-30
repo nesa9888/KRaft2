@@ -65,7 +65,6 @@
 
 - name: render kakfa service config file
   template:
-    gather_facts: True
     src: ../templates/server.properties.j2
     dest: "{{ kafka_path }}/latest/config/kraft/server.properties"
     owner: kafka
