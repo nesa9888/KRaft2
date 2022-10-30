@@ -3,4 +3,5 @@ kafka_path: /opt/kafka
 kafka_vers: 3.3.1
 scala_vers: 2.13
 zookeeper_datadir: /opt/kafka/zookeeper
+kafka_log_dir: /opt/kafka/log
 ...
